@@ -1,0 +1,21 @@
+{
+    "name": "doitcloud/email-microsoft-services",
+    "description": "This package install the controllers to send emails from a connected app in office365",
+    "type": "laravel-library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hugo Hernandez",
+            "email": "hugo@doitcloud.consulting"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Doitcloud\\EmailMicrosoftServices\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}
