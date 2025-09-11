@@ -1,6 +1,6 @@
 <?php
 
-namespace Doitcloud\EmailServices;
+namespace Doitcloud\EmailService;
 
 use Illuminate\Support\ServiceProvider;
 
