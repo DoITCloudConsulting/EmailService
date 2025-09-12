@@ -16,7 +16,7 @@ class HereDocTemplates
             <meta name="x-apple-disable-message-reformatting">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta content="telephone=no" name="format-detection">
-            <title>Nuevo mensaje</title>
+            <title>Nuevo mensaje </title>
             <style type="text/css">
                 #outlook a{padding:0}.es-button{mso-style-priority:100!important;text-decoration:none!important}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}.es-desk-hidden{display:none;float:left;overflow:hidden;width:0;max-height:0;line-height:0;mso-hide:all}[data-ogsb] .es-button{border-width:0!important;padding:10px 20px!important}
             </style>

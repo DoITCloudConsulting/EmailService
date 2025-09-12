@@ -27,7 +27,7 @@ class SendEmail
             ],
             'json' => [
                 'message' => [
-                    'subject' => $this->subject,
+                    'subject' =>$this->subject,
                     'body' => [
                         'contentType' => $this->contentType,
                         'content' => $this->content,
