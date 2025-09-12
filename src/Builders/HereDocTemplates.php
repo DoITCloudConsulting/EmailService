@@ -1094,5 +1094,171 @@ class HereDocTemplates
         HTML;
     }
 
+    public function usageReport($greeting, $bodyText, $footerSocialLinks, $footerTitle, $footerSubtitle, $footerLinkManage, $footerLinkExperience, $footerLinkPolicies, $footerSearchButton, $footerContact): string
+    {
+        $bodyText = nl2br(e($bodyText));
+        return <<<HTML
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml" 
+              xmlns:o="urn:schemas-microsoft-com:office:office" 
+              style="font-family:'source sans pro','helvetica neue',helvetica,arial,sans-serif">
+
+        <head>
+            <meta charset="utf-8">
+            <title>Aeroméxico Business - Reporte de Uso</title>
+        
+            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+        
+            <style>
+                body {
+                    margin: 0;
+                    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+                }
+                .btn {
+                    background: #007cc2;
+                    color: #fff;
+                    padding: 12px 30px;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    display: inline-block;
+                }
+                .footer {
+                    font-size: 12px;
+                    color: #999;
+                    margin-top: 40px;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+                <tr>
+                    <td align="left" style="padding:40px; background-color:#ffffff;">
+                        <img src="https://www.aeromexicobusiness.com/images/emails/full_logo_blue.png" 
+                             width="150" 
+                             alt="Aeroméxico Business">
+                    </td>
+                </tr>
+            </table>
+        
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td bgcolor="#F2F8FC" style="padding:40px">
+                        <h3 style="color:#007cc2; margin:0 0 8px;">¡AM Business!</h3>
+                        <h1 style="color:#0B2343; margin:0 0 24px;">$greeting</h1>
+        
+                        <p style="font-size:16px; color:#0B2343; margin:0 0 16px;">
+                            $bodyText
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            
+            <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#020c41" style="font-family: Arial, sans-serif; color: #ffffff;">
+                <tr>
+                    <td align="center" style="padding: 0;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td align="center" style="padding: 0;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td valign="top">
+                                                <table width="600" cellpadding="0" cellspacing="0" style="width: 600px;">
+                                                    <tr>
+                                                        <td width="50%" align="left" style="padding: 40px 0 20px;">
+                                                            <img src="https://www.aeromexicobusiness.com/images/emails/full_logo_white.png" alt="Aeroméxico Business" style="max-width: 180px; display: block;">
+                                                        </td>
+                                                        <td width="50%" align="right" style="padding: 40px 0 20px;">
+                                                            <table cellpadding="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td style="font-size: 12px; color: #ffffff; padding-right: 10px;">
+                                                                        $footerSocialLinks</td>
+                                                                    <td>
+                                                                        <a href="https://www.facebook.com/AeromexicoMX"><img src="https://www.aeromexicobusiness.com/images/emails/fb.png" width="20" alt="Facebook" style="margin-left: 6px;"></a>
+                                                                        <a href="https://twitter.com/Aeromexico"><img src="https://www.aeromexicobusiness.com/images/emails/twitter.png" width="20" alt="Twitter" style="margin-left: 6px;"></a>
+                                                                        <a href="https://www.instagram.com/aeromexico/?hl=es"><img src="https://www.aeromexicobusiness.com/images/emails/insta.png" width="20" alt="Instagram" style="margin-left: 6px;"></a>
+                                                                        <a href="https://mx.linkedin.com/company/aeromexico"><img src="https://www.aeromexicobusiness.com/images/emails/linkedin.png" width="20" alt="LinkedIn" style="margin-left: 6px;"></a>
+                                                                        <a href="https://www.youtube.com/c/Aerom%C3%A9xico"><img src="https://www.aeromexicobusiness.com/images/emails/youtube.png" width="20" alt="YouTube" style="margin-left: 6px;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+            
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <hr style="border: none; border-top: 1px solid #ffffff; margin: 0 0 40px 0;">
+                                                        </td>
+                                                    </tr>
+            
+                                                    <tr>
+                                                        <td width="50%" valign="top" style="padding-right: 20px; border-right: 1px solid #ffffff;">
+                                                            <p style="font-size: 18px; font-weight: bold; color: #ffffff; margin: 0 0 24px;">
+                                                                $footerTitle
+                                                            </p>
+                                                            <table cellpadding="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td width="24" style="padding-right: 10px;">
+                                                                        <img src="https://www.aeromexicobusiness.com/images/emails/baggage.png" width="24" alt="Maleta">
+                                                                    </td>
+                                                                    <td style="color: #ffffff; font-size: 14px;">$footerLinkManage</td>
+                                                                </tr>
+                                                                <tr><td colspan="2" height="16"></td></tr>
+                                                                <tr>
+                                                                    <td width="24" style="padding-right: 10px;">
+                                                                        <img src="https://www.aeromexicobusiness.com/images/emails/plane.png" width="24" alt="Avión">
+                                                                    </td>
+                                                                    <td style="color: #ffffff; font-size: 14px;">$footerLinkExperience</td>
+                                                                </tr>
+                                                                <tr><td colspan="2" height="16"></td></tr>
+                                                                <tr>
+                                                                    <td width="24" style="padding-right: 10px;">
+                                                                        <img src="https://www.aeromexicobusiness.com/images/emails/chat-phone.png" width="24" alt="Políticas">
+                                                                    </td>
+                                                                    <td style="color: #ffffff; font-size: 14px;">$footerLinkPolicies</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+            
+                                                        <td width="50%" valign="top" align="center" style="padding-left: 20px;">
+                                                            <p style="font-size: 16px; color: #ffffff; margin-bottom: 16px;">$footerSubtitle</p>
+                                                            <a href="https://aeromexicobusiness.com" style="display: inline-block; background-color: #007aff; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px;">
+                                                                <img src="https://www.aeromexicobusiness.com/images/emails/search.png" width="16" alt="Buscar" style="vertical-align: middle; margin-right: 8px;">
+                                                                $footerSearchButton
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+            
+                                                    <tr>
+                                                        <td colspan="2" style="padding-top: 40px;">
+                                                            <hr style="border: none; border-top: 1px solid #ffffff;">
+                                                            <p style="font-size: 12px; color: #ffffff; text-align: center; margin-top: 16px;">
+                                                                $footerContact
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+            
+                                            <td valign="top" align="right" style="padding: 0; margin: 0;">
+                                                <div style="position: absolute; right: 0; top: 0; bottom: 0; height: 100%; max-height: 100%; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; z-index: 1;">
+                                                        <img src="https://www.aeromexicobusiness.com/images/emails/stelas.png" width="30" alt="Estelas" style="display: block;">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+             </table>
+        
+        </body>
+        </html>
+        HTML;
+
+    }
 }
 
