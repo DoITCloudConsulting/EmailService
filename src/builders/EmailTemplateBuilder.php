@@ -30,6 +30,15 @@ class EmailTemplateBuilder
     }
 
     /**
+     * Set template type as reset password.
+     */
+    public function newUserIs(): self
+    {
+        $this->type = 'new_user';
+        return $this;
+    }
+
+    /**
      * Accepts structured content arrays.
      */
     public function content(array $main, array $notices = [], array $footer = []): self
@@ -67,7 +76,7 @@ class EmailTemplateBuilder
             case 'reset_password':
 
                 $title = $this->content['title'] ?? '';
-                $verificationCode = $this->content['verificationCode'] ?? '';
+                $resetLink = $this->content['resetLink'] ?? '';
                 $text1 = $this->content['text1'] ?? '';
 
                 $notice = $this->notices['notice'] ?? '';
@@ -79,8 +88,32 @@ class EmailTemplateBuilder
                 $text2 = $footer['text2'] ?? '';
                 $text3 = $footer['text3'] ?? '';
 
-                return (new HereDocTemplates())->resetPassword($title, $verificationCode, $text1, $notice, $link1, $link2, $link3, $text2, $text3);
+                return (new HereDocTemplates())->resetPassword($title, $resetLink, $text1, $notice, $link1, $link2, $link3, $text2, $text3);
                 break;
+            case 'new_user':
+                $text1 = $this->content['title'] ?? '';
+                $text2 = $this->content['newUser'] ?? '';
+                $text3 = $this->content['description'] ?? '';
+
+                $text4 = $this->notices['detail'] ?? '';
+                $url   = $this->notices['url'] ?? '';
+                $text5 = $this->notices['field'] ?? '';
+                $email = $this->notices['email'] ?? '';
+                $text6 = $this->notices['instructions'] ?? '';
+                $text7 = $this->notices['question'] ?? '';
+                $text8 = $this->notices['answer'] ?? '';
+                $text9 = $this->notices['news'] ?? '';
+                $text10 = $this->notices['experience'] ?? '';
+                $text11 = $this->notices['policies'] ?? '';
+
+                $footer = $this->footer['footer'] ?? [];
+                $text12 = $this->footer['lastInstructionWhite'] ?? '';
+                $text13 = $this->footer['lastInstructionGrey'] ?? '';
+
+                return (new HereDocTemplates())->newUserCreated($text1, $text2, $text3, $text4, $text5, $email, $text6, $text7, $text8, $text9, $text10, $text11, $text12, $text13, $url);
+                break;
+
+
             default:
                 return 'Template not found';
                 break;
