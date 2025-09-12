@@ -95,7 +95,7 @@ class HereDocTemplates
                                 <tr>
                                 <td align="left" style="padding:0;Margin:0;width:490px">
                                     <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
-                                    <tr>1
+                                    <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                             <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:42px;color:#0b2343;font-size:28px">$verificationCode</p>
                                         </td>
@@ -923,7 +923,7 @@ class HereDocTemplates
                                 <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:176px">
                                     <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                     <tr>
-                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="{{ asset('images/emails/full_logo_white.png') }}" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="176"></td>
+                                        <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://www.aeromexicobusiness.com/images/emails/full_logo_white.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="176"></td>
                                     </tr>
                                     </table>
                                 </td>
