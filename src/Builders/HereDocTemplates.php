@@ -1388,7 +1388,12 @@ class HereDocTemplates
             $arrivalTime = $row['arrivalTime'];
             $flightDurationInMinutes = $row['flightDurationInMinutes'];
             $flightStatus = $row['flightStatus'];
-
+            $departureAirport   = $row['origin']['departureAirport'];
+            $boardingTerminal   = 'Terminal ' . $row['origin']['boardingTerminal'];
+            $boardingGate       = 'Gate ' . $row['origin']['boardingGate'];
+            $arrivalAirport     = $row['destination']['arrivalAirport'];
+            $arrivalTerminal    = 'Terminal ' . $row['destination']['arrivalTerminal'];
+            $arrivalGate        = 'Gate ' . $row['destination']['arrivalGate'];
 
             $part1 .= <<<HTML
                         <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#F2F8FC" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#f2f8fc" role="presentation">
@@ -1406,58 +1411,15 @@ class HereDocTemplates
                                             <tr style="vertical-align: top;">
                                                 <td style="word-wrap: break-word; text-align: left"> $operatingFlightCode </td>
                                                 <td style="word-wrap: break-word; text-align: left">
-            HTML;
-
-                                                foreach ($row['origin'] as $index => $origin) {
-                                                    $iteration = $index + 1;
-                                                    // It's best practice to escape variables before using them in the HEREDOC block.
-                                                    $safe_origin = htmlspecialchars($origin, ENT_QUOTES, 'UTF-8');
-
-                                                    if ($iteration == 2) {
-                                                        $part1 .= <<<HTML
-                                                        Terminal $safe_origin<br>
-                                                        HTML;
-                                                    } elseif ($iteration == 3) {
-                                                        $part1 .= <<<HTML
-                                                        Puerta $safe_origin<br>
-                                                        HTML;
-                                                    } else {
-                                                        $part1 .= <<<HTML
-                                                        $safe_origin<br>
-                                                        HTML;
-                                                    }
-                                                }
-                                                $part1 .= <<<HTML
-                                                        </td>
-                                                        <td style="word-wrap: break-word; text-align: left">
-                                                        HTML;
-                                                        foreach ($row['arrival'] as $index => $arrival) {
-                                                            // We get the index to replicate Blade's 1-based $loop->iteration
-                                                            $iteration = $index + 1;
-
-                                                            // Escape the variable first for security before using it in the string
-                                                            $safe_arrival = htmlspecialchars($arrival, ENT_QUOTES, 'UTF-8');
-
-                                                            if ($iteration == 2) {
-                                                                $part1 .= <<<HTML
-                                                                Terminal $safe_arrival<br>
-                                                                HTML;
-                                                            } elseif ($iteration == 3) {
-                                                                $part1 .= <<<HTML
-                                                                Puerta $safe_arrival<br>
-                                                                HTML;
-                                                            } else {
-                                                                $part1 .= <<<HTML
-                                                                $safe_arrival<br>
-                                                                HTML;
-                                                            }
-                                                        }
-                                                        $part1 .= <<<HTML
+                                                        $boardingTerminal<br/>$boardingGate<br/>$departureAirport
                                                 </td>
                                                 <td style="word-wrap: break-word; text-align: left">
-                                                    $departureDateTime</td>
+                                                        $arrivalTerminal<br/>$arrivalGate<br/>$arrivalAirport
+                                                </td>
                                                 <td style="word-wrap: break-word; text-align: left">
-                                                    $arrivalDateTime
+                                                        $departureDateTime</td>
+                                                <td style="word-wrap: break-word; text-align: left">
+                                                        $arrivalDateTime
                                                 </td>
 
                                             </tr>
@@ -1478,7 +1440,7 @@ class HereDocTemplates
                                                 <td style="text-align: left">$boardingTime h</td>
                                                 <td style="text-align: left">$boardingTime h</td>
                                                 <td style="text-align: left">$arrivalTime h </td>
-                                                <td style="text-align: left">$flightDurationInMinutes</td>
+                                                <td style="text-align: left">$flightDurationInMinutes min</td>
                                                 <td style="word-wrap: break-word; text-align: left; width:62px">$flightStatus</td>
                                             </tr>
                                         </table>
