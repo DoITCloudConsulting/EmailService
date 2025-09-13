@@ -1391,9 +1391,9 @@ class HereDocTemplates
             $departureAirport   = $row['origin']['departureAirport'];
             $boardingTerminal   = 'Terminal ' . $row['origin']['boardingTerminal'];
             $boardingGate       = 'Gate ' . $row['origin']['boardingGate'];
-            $arrivalAirport     = $row['destination']['arrivalAirport'];
-            $arrivalTerminal    = 'Terminal ' . $row['destination']['arrivalTerminal'];
-            $arrivalGate        = 'Gate ' . $row['destination']['arrivalGate'];
+            $arrivalAirport     = $row['arrival']['arrivalAirport'];
+            $arrivalTerminal    = 'Terminal ' . $row['arrival']['arrivalTerminal'];
+            $arrivalGate        = 'Gate ' . $row['arrival']['arrivalGate'];
 
             $part1 .= <<<HTML
                         <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#F2F8FC" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#f2f8fc" role="presentation">
