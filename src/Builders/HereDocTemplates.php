@@ -1478,7 +1478,7 @@ class HereDocTemplates
                                                 <td style="text-align: left">$boardingTime h</td>
                                                 <td style="text-align: left">$boardingTime h</td>
                                                 <td style="text-align: left">$arrivalTime h </td>
-                                                <td style="text-align: left">$flightDurationInMinutes min</td>
+                                                <td style="text-align: left">$flightDurationInMinutes</td>
                                                 <td style="word-wrap: break-word; text-align: left; width:62px">$flightStatus</td>
                                             </tr>
                                         </table>
