@@ -1519,7 +1519,7 @@ class HereDocTemplates
                                             <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                 <tr>
                                                     <td align="left" style="padding: 0; Margin: 0; padding-top: 10px; padding-bottom: 10px; font-size: 0px;">
-                                                        <img src="{{ asset('images/emails/full_logo_white.png') }}" style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic" width="176">
+                                                        <img src="https://aeromexicobusiness.com/images/emails/full_logo_white.png" style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic" width="176">
                                                     </td>
                                                 </tr>
                                             </table>
