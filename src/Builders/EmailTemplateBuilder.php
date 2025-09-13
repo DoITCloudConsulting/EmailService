@@ -45,6 +45,16 @@ class EmailTemplateBuilder
     }
 
     /**
+     * Set template type as usage report.
+     */
+    public function usageReportIs(): self
+    {
+        $this->type = 'usage_report';
+        return $this;
+    }
+
+
+    /**
      * Accepts structured content arrays.
      */
     public function content(array $main, array $notices = [], array $footer = []): self
@@ -118,6 +128,34 @@ class EmailTemplateBuilder
 
                 return (new HereDocTemplates())->newUserCreated($text1, $text2, $text3, $text4, $text5, $email, $text6, $text7, $text8, $text9, $text10, $text11, $text12, $text13, $url);
                 break;
+
+            case 'usage_report':
+                $greeting = $this->content['greeting'] ?? '';
+                $bodyText = $this->content['bodyText'] ?? '';
+                $footer = $this->footer['footer'] ?? [];
+                $footerSocialLinks = $footer['socialLinks'] ?? [];
+                $footerTitle = $footer['title'] ?? '';
+                $footerSubtitle = $footer['subtitle'] ?? '';
+                $footerLinkManage = $footer['linkManage'] ?? '';
+                $footerLinkExperience = $footer['linkExperience'] ?? '';
+                $footerLinkPolicies = $footer['linkPolicies'] ?? '';
+                $footerSearchButton = $footer['searchButton'] ?? '';
+                $footerContact = $footer['contact'] ?? '';
+
+                return ((new HereDocTemplates())->usageReport(
+                    $greeting,
+                    $bodyText,
+                    $footerSocialLinks,
+                    $footerTitle,
+                    $footerSubtitle,
+                    $footerLinkManage,
+                    $footerLinkExperience,
+                    $footerLinkPolicies,
+                    $footerSearchButton,
+                    $footerContact
+                ));
+                break;
+
 
 
             default:
