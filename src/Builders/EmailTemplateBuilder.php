@@ -38,7 +38,7 @@ class EmailTemplateBuilder
         return $this;
     }
 
-    public function FlightStatusIs(): self
+    public function flightStatusIs(): self
     {
         $this->type = 'flight_status';
         return $this;
@@ -158,6 +158,34 @@ class EmailTemplateBuilder
 
 
 
+
+            case 'flight_status':
+
+                $text1 = $this->content['text1'] ?? '';
+                $textvuelo = $this->content['textvuelo'] ?? '';
+                $textOrg = $this->content['textOrg'] ?? '';
+                $textDest = $this->content['textDest'] ?? '';
+                $textFech = $this->content['textFech'] ?? '';
+                $textFech2 = $this->content['textFech2'] ?? '';
+                $textvueloHora3 = $this->content['textvueloHora3'] ?? '';
+                $textvueloHora = $this->content['textvueloHora'] ?? '';
+                $textvueloHora2 = $this->content['textvueloHora2'] ?? '';
+                $textvueloTiempo = $this->content['textvueloTiempo'] ?? '';
+                $textvueloEst = $this->content['textvueloEst'] ?? '';
+                $text2 = $this->content['text2'] ?? '';
+                $hora = $this->content['hora'] ?? '';
+                $text3 = $this->content['text3'] ?? '';
+                $textNews = $this->content['textNews'] ?? '';
+                $textExp = $this->content['textExp'] ?? '';
+                $textPol = $this->content['textPol'] ?? '';
+                $textmes = $this->content['textmes'] ?? '';
+                $textmes2 = $this->content['textmes2'] ?? '';
+                $body = $this->content['body'] ?? '';
+
+
+                return ((new HereDocTemplates())->flightStatus($text1, $textvuelo, $textOrg, $textDest, $textFech, $textFech2, $textvueloHora3, $textvueloHora, $textvueloHora2, $textvueloTiempo, $textvueloEst, $text2, $hora, $text3, $textNews, $textExp, $textPol, $textmes, $textmes2, $body));
+
+                break;
             default:
                 return 'Template not found';
                 break;

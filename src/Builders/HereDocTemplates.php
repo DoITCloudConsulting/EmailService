@@ -1098,18 +1098,18 @@ class HereDocTemplates
     {
         $bodyText = nl2br(e($bodyText));
         return <<<HTML
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-        <html xmlns="http://www.w3.org/1999/xhtml" 
-              xmlns:o="urn:schemas-microsoft-com:office:office" 
+        <html xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
               style="font-family:'source sans pro','helvetica neue',helvetica,arial,sans-serif">
 
         <head>
             <meta charset="utf-8">
             <title>Aeroméxico Business - Reporte de Uso</title>
-        
+
             <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
-        
+
             <style>
                 body {
                     margin: 0;
@@ -1131,30 +1131,30 @@ class HereDocTemplates
             </style>
         </head>
         <body>
-        
+
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
                 <tr>
                     <td align="left" style="padding:40px; background-color:#ffffff;">
-                        <img src="https://www.aeromexicobusiness.com/images/emails/full_logo_blue.png" 
-                             width="150" 
+                        <img src="https://www.aeromexicobusiness.com/images/emails/full_logo_blue.png"
+                             width="150"
                              alt="Aeroméxico Business">
                     </td>
                 </tr>
             </table>
-        
+
             <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                     <td bgcolor="#F2F8FC" style="padding:40px">
                         <h3 style="color:#007cc2; margin:0 0 8px;">¡AM Business!</h3>
                         <h1 style="color:#0B2343; margin:0 0 24px;">$greeting</h1>
-        
+
                         <p style="font-size:16px; color:#0B2343; margin:0 0 16px;">
                             $bodyText
                         </p>
                     </td>
                 </tr>
             </table>
-            
+
             <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#020c41" style="font-family: Arial, sans-serif; color: #ffffff;">
                 <tr>
                     <td align="center" style="padding: 0;">
@@ -1185,13 +1185,13 @@ class HereDocTemplates
                                                             </table>
                                                         </td>
                                                     </tr>
-            
+
                                                     <tr>
                                                         <td colspan="2">
                                                             <hr style="border: none; border-top: 1px solid #ffffff; margin: 0 0 40px 0;">
                                                         </td>
                                                     </tr>
-            
+
                                                     <tr>
                                                         <td width="50%" valign="top" style="padding-right: 20px; border-right: 1px solid #ffffff;">
                                                             <p style="font-size: 18px; font-weight: bold; color: #ffffff; margin: 0 0 24px;">
@@ -1220,7 +1220,7 @@ class HereDocTemplates
                                                                 </tr>
                                                             </table>
                                                         </td>
-            
+
                                                         <td width="50%" valign="top" align="center" style="padding-left: 20px;">
                                                             <p style="font-size: 16px; color: #ffffff; margin-bottom: 16px;">$footerSubtitle</p>
                                                             <a href="https://aeromexicobusiness.com" style="display: inline-block; background-color: #007aff; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px;">
@@ -1229,7 +1229,7 @@ class HereDocTemplates
                                                             </a>
                                                         </td>
                                                     </tr>
-            
+
                                                     <tr>
                                                         <td colspan="2" style="padding-top: 40px;">
                                                             <hr style="border: none; border-top: 1px solid #ffffff;">
@@ -1240,7 +1240,7 @@ class HereDocTemplates
                                                     </tr>
                                                 </table>
                                             </td>
-            
+
                                             <td valign="top" align="right" style="padding: 0; margin: 0;">
                                                 <div style="position: absolute; right: 0; top: 0; bottom: 0; height: 100%; max-height: 100%; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; z-index: 1;">
                                                         <img src="https://www.aeromexicobusiness.com/images/emails/stelas.png" width="30" alt="Estelas" style="display: block;">
@@ -1254,11 +1254,504 @@ class HereDocTemplates
                     </td>
                 </tr>
              </table>
-        
+
         </body>
         </html>
         HTML;
 
+    }
+
+    public function flightStatus(
+        $text1,
+        $textvuelo,
+        $textOrg,
+        $textDest,
+        $textFech,
+        $textFech2,
+        $textvueloHora3,
+        $textvueloHora,
+        $textvueloHora2,
+        $textvueloTiempo,
+        $textvueloEst,
+        $text2,
+        $hora,
+        $text3,
+        $textNews,
+        $textExp,
+        $textPol,
+        $textmes,
+        $textmes2,
+        $body
+    ){
+        $part1 = <<<HTML
+            <!DOCTYPE html
+                PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office"
+                style="font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="x-apple-disable-message-reformatting">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta content="telephone=no" name="format-detection">
+                <title>Flight Status</title>
+                <!--[if (mso 16)]>
+            <style type="text/css">
+                a {text-decoration: none;}
+            </style>
+            <![endif]-->
+                <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+                <!--[if gte mso 9]>
+            <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG></o:AllowPNG>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+            </xml>
+            <![endif]-->
+                <!--[if !mso]-->
+                <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+                <!--<![endif]-->
+
+
+                <style type="text/css">
+                    #outlook a {
+                        padding: 0;
+                    }
+
+                    .es-button {
+                        mso-style-priority: 100 !important;
+                        text-decoration: none !important;
+                    }
+
+                    a[x-apple-data-detectors] {
+                        color: inherit !important;
+                        text-decoration: none !important;
+                        font-size: inherit !important;
+                        font-family: inherit !important;
+                        font-weight: inherit !important;
+                        line-height: inherit !important;
+                    }
+
+                    .es-desk-hidden {
+                        display: none;
+                        float: left;
+                        overflow: hidden;
+                        width: 0;
+                        max-height: 0;
+                        line-height: 0;
+                        mso-hide: all;
+                    }
+
+                    [data-ogsb] .es-button {
+                        border-width: 0 !important;
+                        padding: 10px 20px 10px 20px !important;
+                    }
+
+                    [data-ogsb] .es-button.es-button-1650486598598 {
+                        padding: 10px 20px !important;
+                    }
+                </style>
+            </head>
+            <body style="width:100%;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
+                <div class="es-wrapper-color" style="background-color:#FFFFFF">
+                    <!--[if gte mso 9]>
+                <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+                    <v:fill type="tile" color="#ffffff"></v:fill>
+                </v:background>
+                <![endif]-->
+                    <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;background-repeat:repeat;background-position:center top;background-color:#FFFFFF">
+                        <td style="padding:0;Margin:0">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:640px">
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://www.aeromexicobusiness.com/images/emails/full_logo_blue.png" style="vertical-align: middle; margin-bottom: 10px; width: 150px; margin-top: 10px;">
+                                                    <button style="background-color: #008080; color: white; font-weight: bold; border: 2px solid #008080; border-radius: 5px; padding: 0.5em; font-size: 1em; margin-left: 210px; margin-top: 10px; margin-bottom: 10px; width: 250px;">$text1</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+        HTML;
+
+        foreach($body as $row){
+            $operatingFlightCode = $row['operatingFlightCode'];
+            $departureDateTime = $row['departureDateTime'];
+            $arrivalDateTime = $row['arrivalDateTime'];
+            $boardingTime = $row['boardingTime'];
+            $arrivalTime = $row['arrivalTime'];
+            $flightDurationInMinutes = $row['flightDurationInMinutes'];
+            $flightStatus = $row['flightStatus'];
+
+
+            $part1 .= <<<HTML
+                        <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#F2F8FC" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;background-color:#f2f8fc" role="presentation">
+                            <tr>
+                                <td>
+                                    <div style="border: 3px solid lightgray; padding: 10px; width: 90%; margin: 20px auto 20px;">
+                                        <table>
+                                            <tr style="vertical-align: top;">
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textvuelo</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textOrg</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textDest</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textFech</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textFech2</td>
+                                            </tr>
+                                            <tr style="vertical-align: top;">
+                                                <td style="word-wrap: break-word; text-align: left"> $operatingFlightCode </td>
+                                                <td style="word-wrap: break-word; text-align: left">
+            HTML;
+
+                                                foreach ($row['origin'] as $index => $origin) {
+                                                    $iteration = $index + 1;
+                                                    // It's best practice to escape variables before using them in the HEREDOC block.
+                                                    $safe_origin = htmlspecialchars($origin, ENT_QUOTES, 'UTF-8');
+
+                                                    if ($iteration == 2) {
+                                                        $part1 .= <<<HTML
+                                                        Terminal $safe_origin<br>
+                                                        HTML;
+                                                    } elseif ($iteration == 3) {
+                                                        $part1 .= <<<HTML
+                                                        Puerta $safe_origin<br>
+                                                        HTML;
+                                                    } else {
+                                                        $part1 .= <<<HTML
+                                                        $safe_origin<br>
+                                                        HTML;
+                                                    }
+                                                }
+                                                $part1 .= <<<HTML
+                                                        </td>
+                                                        <td style="word-wrap: break-word; text-align: left">
+                                                        HTML;
+                                                        foreach ($row['arrival'] as $index => $arrival) {
+                                                            // We get the index to replicate Blade's 1-based $loop->iteration
+                                                            $iteration = $index + 1;
+
+                                                            // Escape the variable first for security before using it in the string
+                                                            $safe_arrival = htmlspecialchars($arrival, ENT_QUOTES, 'UTF-8');
+
+                                                            if ($iteration == 2) {
+                                                                $part1 .= <<<HTML
+                                                                Terminal $safe_arrival<br>
+                                                                HTML;
+                                                            } elseif ($iteration == 3) {
+                                                                $part1 .= <<<HTML
+                                                                Puerta $safe_arrival<br>
+                                                                HTML;
+                                                            } else {
+                                                                $part1 .= <<<HTML
+                                                                $safe_arrival<br>
+                                                                HTML;
+                                                            }
+                                                        }
+                                                        $part1 .= <<<HTML
+                                                </td>
+                                                <td style="word-wrap: break-word; text-align: left">
+                                                    $departureDateTime</td>
+                                                <td style="word-wrap: break-word; text-align: left">
+                                                    $arrivalDateTime
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6">
+                                                    <hr
+                                                        style="border: none; border-top: 3px solid lightgray;">
+                                                </td>
+                                            </tr>
+                                            <tr style="vertical-align: top;">
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left; padding-right: 10px">$textvueloHora3</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left; padding-right: 10px ">$textvueloHora</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left; padding-right: 10px ">$textvueloHora2</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left; width:120px; padding-right: 10px ">$textvueloTiempo</td>
+                                                <td style="font-family: Calibri, sans-serif; font-weight: bold; font-size: 15px; text-align: left">$textvueloEst</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: left">$boardingTime h</td>
+                                                <td style="text-align: left">$boardingTime h</td>
+                                                <td style="text-align: left">$arrivalTime h </td>
+                                                <td style="text-align: left">$flightDurationInMinutes min</td>
+                                                <td style="word-wrap: break-word; text-align: left; width:62px">$flightStatus</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    HTML;
+
+        }
+
+        $part2 = <<<HTML
+                </td>
+                    </tr>
+                        <tr>
+                            <td align="left" style="padding:0;Margin:0;width:514px">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div style="background-color: #dcdcdc; border: 1px solid lightgray; padding: 20px; width: 90%; margin: 20px auto 20px; display: flex;">
+                                                <img src="https://www.aeromexicobusiness.com/images/adv2.png" alt="Adv2" style="width: 35px;height: 33px;padding-top: 5px;margin-right:10px;">
+                                                <p style="color: #333333; font-size: 14px; margin: 0; align-self: flex-end;">
+                                                    <b>$text2</b>  <b>$hora</b> <b>$text3</b>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="Margin:0;padding-bottom:10px;padding-top:15px;padding-left:40px;padding-right:40px;background-color:#0b2343"
+                                bgcolor="#0b2343" align="left">
+                                <!--[if mso]><table style="width:560px" cellpadding="0" cellspacing="0"><tr><td style="width:176px" valign="top"><![endif]-->
+                                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
+                                    <tr>
+                                        <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:176px">
+                                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+                                                    <td align="left" style="padding: 0; Margin: 0; padding-top: 10px; padding-bottom: 10px; font-size: 0px;">
+                                                        <img src="{{ asset('images/emails/full_logo_white.png') }}" style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic" width="176">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--[if mso]></td><td style="width:20px"></td><td style="width:364px" valign="top"><![endif]-->
+                                <table cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                    <tr>
+                                        <td align="left" style="padding:0;Margin:0;width:364px">
+                                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+                                                    <td class="es-m-txt-c" align="right" style="padding:0;Margin:0;padding-right:20px;font-size:0px">
+                                                        <table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr>
+                                                                <td valign="top" align="center" style="padding:0;Margin:0;padding-right:20px"><a target="_blank" href="https://www.facebook.com/AeromexicoMX" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img title="Facebook" src="https://www.aeromexicobusiness.com/images/fb.png" alt="Fb" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
+                                                                </td>
+                                                                <td valign="top" align="center" style="padding:0;Margin:0;padding-right:20px"><a target="_blank" href="https://www.instagram.com/aeromexico/?hl=es" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img title="instagram" src="https://www.aeromexicobusiness.com/images/insta.png" alt="Inst" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
+                                                                </td>
+                                                                <td valign="top" align="center" style="padding:0;Margin:0;padding-right:20px"><a target="_blank" href="https://twitter.com/Aeromexico" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img title="Twitter" src="https://www.aeromexicobusiness.com/images/twitter.png" alt="Tw" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
+                                                                </td>
+                                                                <td valign="top" align="center" style="padding:0;Margin:0;padding-right:20px"><a target="_blank" href="https://mx.linkedin.com/company/aeromexico" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img title="Linkedin" src="https://www.aeromexicobusiness.com/images/linkedin.png" alt="In" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
+                                                                </td>
+                                                                <td valign="top" align="center" style="padding:0;Margin:0"><a target="_blank" href="https://www.youtube.com/c/Aerom%C3%A9xico" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img title="Youtube" src="https://www.aeromexicobusiness.com/images/youtube.png" alt="Yt" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--[if mso]></td></tr></table><![endif]-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" bgcolor="#0b2343" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px;background-color:#0b2343">
+                                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+                                                    <td align="center" style="padding:0;Margin:0;font-size:0">
+                                                        <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr>
+                                                                <td style="padding:0;Margin:0;border-bottom:1px solid #3e516a;background:unset;height:1px;width:100%;margin:0px">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="esdev-adapt-off" align="left" bgcolor="#0B2343" style="Margin:0;padding-top:10px;padding-bottom:20px;padding-left:40px;padding-right:40px;background-color:#0b2343">
+                                <table cellpadding="0" cellspacing="0" class="esdev-mso-table" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:560px">
+                                    <tr>
+                                        <td class="esdev-mso-td" valign="top" style="padding:0;Margin:0">
+                                            <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;float:left">
+                                                <tr>
+                                                    <td class="es-m-p0r" valign="top" align="center" style="padding:0;Margin:0;width:42px">
+                                                        <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding: 0; Margin: 0; padding-top: 10px; padding-bottom: 10px; font-size: 0px;">
+                                                                    <img src="https://www.aeromexicobusiness.com/images/maleta.png"
+                                                                        style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic"
+                                                                        width="26">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding: 0; Margin: 0; padding-top: 10px; padding-bottom: 10px; font-size: 0px;">
+                                                                    <img src="https://www.aeromexicobusiness.com/images/avion.png"
+                                                                        style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic"
+                                                                        width="26">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding: 0; Margin: 0; padding-top: 10px; padding-bottom: 10px; font-size: 0px;">
+                                                                    <img src="https://www.aeromexicobusiness.com/images/telefono.png"
+                                                                        style="background-color: transparent; display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic"
+                                                                        width="26">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="esdev-mso-td" valign="top" style="padding:0;Margin:0">
+                                            <table cellpadding="0" cellspacing="0" align="right" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+                                                    <td align="left" style="padding:0;Margin:0;width:558px">
+                                                        <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr>
+                                                                <td align="left" style="padding:0;Margin:0;padding-bottom:10px;padding-top:15px">
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;line-height:21px;color:#ffffff;font-size:14px">
+
+                                                                        <a style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#ffffff;font-size:14px" href="https://aeromexicobusiness.com/news" target="_blank">$textNews</a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding:0;Margin:0;padding-bottom:10px;padding-top:15px">
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;line-height:21px;color:#ffffff;font-size:14px">
+                                                                        <a target="_blank"
+                                                                            style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#ffffff;font-size:14px"
+                                                                            href="https://aeromexicobusiness.com/experience">$textExp</a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding:0;Margin:0;padding-bottom:10px;padding-top:15px">
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;line-height:21px;color:#ffffff;font-size:14px">
+                                                                        <a target="_blank"
+                                                                            style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#ffffff;font-size:14px"
+                                                                            href="https://aeromexicobusiness.com/policies">$textPol</a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" bgcolor="#0b2343"
+                                style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px;background-color:#0b2343">
+                                <table cellpadding="0" cellspacing="0" width="100%"
+                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation"
+                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+                                                    <td align="center" style="padding:0;Margin:0;font-size:0">
+                                                        <table border="0" width="100%" height="100%"
+                                                            cellpadding="0" cellspacing="0" role="presentation"
+                                                            style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                            <tr>
+                                                                <td
+                                                                    style="padding:0;Margin:0;border-bottom:1px solid #3e516a;background:unset;height:1px;width:100%;margin:0px">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" bgcolor="#0B2343"
+                                style="Margin:0;padding-top:10px;padding-bottom:20px;padding-left:40px;padding-right:40px;background-color:#0b2343">
+                                <table cellpadding="0" cellspacing="0" width="100%"
+                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation"
+                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+
+                                                    <td align="left" style="padding:0;Margin:0">
+                                                        <p
+                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;line-height:24px;color:#ffffff;font-size:16px">
+                                                            $textmes</p>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"
+                                style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:40px;padding-right:40px">
+                                <table cellpadding="0" cellspacing="0" width="100%"
+                                    style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                    <tr>
+                                        <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
+                                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation"
+                                                style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                                                <tr>
+
+                                                    <td align="left" style="padding:0;Margin:0">
+                                                        <p
+                                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'source sans pro', 'helvetica neue', helvetica, arial, sans-serif;line-height:21px;color:#999999;font-size:14px">
+                                                            $textmes2</strong></p>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            </div>
+            </table>
+        </body>
+
+        </html>
+
+        HTML;
+
+        return $part1 . $part2;
     }
 }
 
