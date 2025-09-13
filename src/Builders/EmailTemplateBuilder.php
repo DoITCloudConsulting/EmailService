@@ -38,6 +38,12 @@ class EmailTemplateBuilder
         return $this;
     }
 
+    public function FlightStatusIs(): self
+    {
+        $this->type = 'flight_status';
+        return $this;
+    }
+
     /**
      * Accepts structured content arrays.
      */
